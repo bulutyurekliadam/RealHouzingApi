@@ -6,21 +6,22 @@
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <br /> <br />
-<div class="container" >
-    <table class="tbl tbl-bordered">
+<div class="container">
+    <table class="table table-bordered">
         <tr>
-            <td>
-
             
             <th>#</th>
              <th>Kategori Adı</th>
-            </td>
+             <th>Sil</th>
+           
         </tr>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@item.CategoryID</td>
                 <td>@item.CategoryName</td>
+                <td><a href ="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil </a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
 
