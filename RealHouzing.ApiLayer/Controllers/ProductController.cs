@@ -46,7 +46,7 @@ namespace RealHouzing.ApiLayer.Controllers
             return Ok();
 
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var values = _productService.TGetById(id);
