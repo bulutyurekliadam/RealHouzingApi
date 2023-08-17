@@ -54,7 +54,7 @@ namespace RealHouzing.ApiLayer.Controllers
             return Ok();
 
         }
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct (int id)
         {
             var values = _productService.TGetById(id);

@@ -101,6 +101,19 @@ namespace RealHouzing.Consume.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(UpdateProductViewModel updateProductViewModel)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateProductViewModel);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("https://localhost:44370/api/Product/", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
         //Ders 25 -  Saat : 44:26 
 
     }
